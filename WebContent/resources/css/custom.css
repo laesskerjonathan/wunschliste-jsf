@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+  .navbar-center {
+  	margin-right: auto; 
+  	margin-left: auto;
+  	background-color: #FFCCOO;
+  	  color:black;
+  	  
+  }
+  
+ .footer-elements{
+ margin-top: 1em;
+ }
+  
+ .container-navbar{
+  background-color: #FFCC00;
+  color:black;
+  border:#4c3310 solid 1px;
+ }
+ 
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus{
+	background-color:#e7e7e7;
+	background-image: none;
+}
+
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .active > a
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+	background-image: none;
+	background-color:#FFCC00;
+}
+  
+ 
+  
+ /*Damit der Footer immer am unteren Ende des Bildschirmes ist. */
+.content {
+  min-height: calc(100vh - 50px - 25px);
+}
+
+ /*Damit der Footer immer am unteren Ende des Bildschirmes ist. */
+.footer {
+  height: 50px;
+  background-color: #FFCC00;
+}
+
+/**/
+.table-striped-custom{
+	background-color: white;
+}

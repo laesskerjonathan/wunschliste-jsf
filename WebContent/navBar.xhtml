@@ -1,41 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>Facelets Hello World</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Facelets Hello World</title>
 	<h:outputScript name="js/jquery-3.2.1.js" />
 
-    </h:head>
-    <h:body>
-    
-	    <ui:composition>
-	    
-		    <nav class="navbar navbar-default">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="dashboard.xhtml">Wunschliste</a>
-			    </div>
-			    <ul class="nav navbar-nav navbar-center">
-	      		  <li class="#{view.viewId eq '/dashboard.xhtml' ? 'active' : ''}"><a href="dashboard.xhtml">Dashboard</a></li>
-			      <li class="#{view.viewId eq '/wuensche.xhtml' ? 'active' : ''}"><a href="wuensche.xhtml">Wünsche</a></li>
-			      <li class="#{view.viewId eq '/geschenke.xhtml' ? 'active' : ''}"><a href="geschenke.xhtml">Geschenke</a></li>
-			    </ul>
-				<ul class="nav navbar-nav navbar-right">
-			      <li class="dropdown">
-			        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Weiteres<span class="caret"></span></a>
-			        <ul class="dropdown-menu">
-			          <li class="#{view.viewId eq '/freunde.xhtml' ? 'active' : ''}"><a href="freunde.xhtml">Freunde</a></li>
-			          <li class="#{view.viewId eq '/einstellungen.xhtml' ? 'active' : ''}"><a href="einstellungen.xhtml">Einstellungen</a></li>
-			          <li class="#{view.viewId eq '/index.xhtml' ? 'active' : ''}"><a href="index.xhtml">Logout</a></li>
-			        </ul>
-			      </li>
-			    </ul>
-			  </div>
-			</nav>
-	    
-	    </ui:composition>
-
-    </h:body>
+</h:head>
+<h:body>
+	<ui:composition>
+		<nav class="navbar navbar-default">
+		<div class="container-fluid container-navbar">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="dashboard.xhtml">Wunschliste</a>
+			</div>
+			<ul class="nav navbar-nav navbar-center">
+				<li class="#{view.viewId eq '/dashboard.xhtml' ? 'active' : ''}"><a
+					href="dashboard.xhtml">Dashboard</a></li>
+				<li class="#{view.viewId eq '/wuensche.xhtml' ? 'active' : ''}"><a
+					href="wuensche.xhtml">Wünsche</a></li>
+				<li class="#{view.viewId eq '/geschenke.xhtml' ? 'active' : ''}"><a
+					href="geschenke.xhtml">Geschenke</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Weiteres<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="#{view.viewId eq '/freunde.xhtml' ? 'active' : ''}"><a
+							href="freunde.xhtml">Freunde</a></li>
+						<li
+							class="#{view.viewId eq '/einstellungen.xhtml' ? 'active' : ''}"><a
+							href="einstellungen.xhtml">Einstellungen</a></li>
+						<li class="#{view.viewId eq '/index.xhtml' ? 'active' : ''}"><a
+							href="index.xhtml">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		</nav>
+	</ui:composition>
+</h:body>
 </html>
