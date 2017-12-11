@@ -1,38 +1,121 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-     <h:head>    
-        <title>Facelets Hello World</title>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		
-		<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
-		<h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
-		<h:outputStylesheet library="css" name="custom.css"></h:outputStylesheet>
-		
-    </h:head>
-    <h:body>
-   <div class="content">
-			<ui:insert name="navBar">
-				<ui:include src="navBar.xhtml" />
-			</ui:insert>			
-			<div class="col-md-10 col-md-offset-1">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Facelets Hello World</title>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script
+		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="custom.css"></h:outputStylesheet>
+
+</h:head>
+<h:body>
+	<div class="content">
+		<ui:insert name="navBar">
+			<ui:include src="navBar.xhtml" />
+		</ui:insert>
+		<div class="col-md-10 col-md-offset-1">
 			<ol class="breadcrumb">
-				  <li><a href="#">Dashboard</a></li>
-				  <li class="active">Einstellungen</li>
-				</ol>
-				<div class="page-header text-center">
-					<h2> Einstellungen</h2>
-				</div>
-				<div class="jumbotron">
-					
+				<li><a href="#">Dashboard</a></li>
+				<li class="active">Einstellungen</li>
+			</ol>
+			<div class="page-header text-center">
+				<h2>Meine Einstellungen</h2>
+			</div>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label for="einstellungen_email" class="col-md-4 control-label">Email</label>
+								<div class="col-md-8">
+									<input type="email" class="form-control" id="einstellungen_email"
+										placeholder="mein.email@adresse.com" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="einstellungen_nutzername" class="col-md-4 control-label">Nutzername</label>
+								<div class="col-md-8">
+									<input type="email" class="form-control" id="einstellungen_nutzername"
+										placeholder="nutzername" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="einstellungen_vorname" class="col-md-4 control-label">Vorname</label>
+								<div class="col-md-8">
+									<input type="email" class="form-control" id="einstellungen_vorname"
+										placeholder="vorname" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="einstellungen_nachname" class="col-md-4 control-label">Nachname</label>
+								<div class="col-md-8">
+									<input type="email" class="form-control" id="einstellungen_nachname"
+										placeholder="nachname" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="einstellungen_geburtsdatum" class="col-md-4 control-label">Geburtsdatum</label>
+								<div class="col-md-2">
+									<input type="number" class="form-control" id="einstellungen_geburtsdatum"
+										min="00" max="31" step="1" value="02" />										
+								</div>
+								<div class="col-md-2">
+									<input type="number" class="form-control" id="einstellungen_geburtsdatum"
+										min="00" max="12" step="1" value="02" />										
+								</div>
+								<div class="col-md-3">
+									<input type="number" class="form-control" id="einstellungen_geburtsdatum"
+										min="1900" max="2018" step="1" value="1988" />										
+								</div>
+							</div>
+							<div class="col-md-12 col-md-offset-4">
+								<button class="btn btn-default">Änderungen übernehmen</button>
+							</div>
+						</form>
+						<br/>
+						<br/>
+						<br/>
+						<div class="col-md-12 text-center">
+							<p>Passwort ändern</p>
+						</div>
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label for="einstellungen_password_old" class="col-md-4 control-label">Altes Passwort</label>
+								<div class="col-md-8">
+									<input type="password" class="form-control" id="einstellungen_password_old" />
+								</div>
+							</div>	
+							<div class="form-group">
+								<label for="einstellungen_passwort" class="col-md-4 control-label">Neues Passwort</label>
+								<div class="col-md-8">
+									<input type="password" class="form-control" id="einstellungen_passwort"
+										 />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="einstellungen_passwort_confirm" class="col-md-4 control-label">Password wiederholen</label>
+								<div class="col-md-8">
+									<input type="password" class="form-control" id="einstellungen_passwort_confirm"
+										 />
+								</div>
+							</div>													
+							<div class="col-md-12 col-md-offset-4">
+								<button class="btn btn-default">Passwort ändern</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-		<ui:insert name="footer">
-			<ui:include src="footer.xhtml" />
-		</ui:insert>	
-    </h:body>
+	</div>
+	<ui:insert name="footer">
+		<ui:include src="footer.xhtml" />
+	</ui:insert>
+</h:body>
 </html>
