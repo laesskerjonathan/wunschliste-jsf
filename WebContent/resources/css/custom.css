@@ -47,3 +47,8 @@
 .table-striped-custom{
 	background-color: white;
 }
+
+/* Abstand zwischen zwei Elemente*/
+.placeholder{
+	height:1em;
+}
