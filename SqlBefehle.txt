@@ -12,5 +12,31 @@ CREATE TABLE geschenke (
 INSERT INTO geschenke VALUES(1,'Bund Rosen', 1, 'Bio und Rot ', false);
 INSERT INTO geschenke VALUES(2,'Laptop', 2, 'Von Apple', true);
 INSERT INTO geschenke VALUES(3,'10000 Fr.-', 3, '5000 pro Note', false);
+------------------------------------------------------------------------------------
+USE wunschliste;
 
+CREATE TABLE freunde (
+	freund_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nutzername VARCHAR(60),
+	vorname VARCHAR(60),
+	nachname VARCHAR(60),
+	email VARCHAR(60)
+);
 
+INSERT INTO freunde VALUES(1,'SuperBarbara1','Barbara1','Metzger1','barbara.metzger1@students.ffhs.ch');
+INSERT INTO freunde VALUES(2,'SuperBarbara2','Barbara2','Metzger2','barbara.metzger2@students.ffhs.ch');
+INSERT INTO freunde VALUES(3,'SuperBarbara3','Barbara3','Metzger3','barbara.metzger3@students.ffhs.ch');
+------------------------------------------------------------------------------------
+USE wunschliste;
+
+CREATE TABLE wuensche(
+	wunsch_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	titel VARCHAR(64),
+	beschreibung VARCHAR(512),
+	link VARCHAR(128),
+	prioritaet INTEGER
+);
+
+INSERT INTO wuensche VALUES(1,'Pferd','Hengst','ww.Pferd-golden.ch','1');
+INSERT INTO wuensche VALUES(2,'Turnschuhe','Adihasch','www.addidahash.ch','5');
+INSERT INTO wuensche VALUES(3,'Haussklave','Nicht aus dem Ural','www.deepwep-slaves.ch','9');

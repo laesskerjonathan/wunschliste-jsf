@@ -2,6 +2,7 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
      <h:head>    
         <title>Facelets Hello World</title>
@@ -70,102 +71,32 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 					<div class="col-md-12 text-center">
-						<p>Meine Wünsche</p>
-					</div>					
-						<table class="table table-striped table-bordered text-center">
-							<thead>
-								<tr>
-									<th>Nutzernamen</th>
-									<th>Vorname</th>
-									<th>Nachname</th>
-									<th>E-Mail</th>
-									<th class="text-center">Bearbeiten</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>SuperBarbara</td>
-									<td>Barbara</td>
-									<td>wMetzger</td>
-									<td>barbara.metzger@students.ffhs.ch</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>Johny01</td>
-									<td>Jonathan</td>
-									<td>Lässker</td>
-									<td>jonathan.lässker@iapple.ch</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-								<tr>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>...</td>
-									<td>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</td>
-								</tr>
-																										
-							</tbody>
-						</table>
+						<p>Meine Freunde</p>
+					</div>
+						<h:dataTable value="#{freundeBean.freunde}" var="freund" border="2" class="table table-striped table-bordered text-center">
+							<h:column>
+								<f:facet name="header">Nutzername</f:facet>
+					         #{freund.nutzername}
+					      </h:column>
+							<h:column>
+								<f:facet name="header">Vorname</f:facet>
+					         #{freund.vorname}
+					      </h:column>
+							<h:column>
+								<f:facet name="header">Nachname</f:facet>
+					           #{freund.nachname}
+					       </h:column>
+							<h:column>
+								<f:facet name="header">E-Mail</f:facet>
+					           #{freund.email}
+					           
+					       </h:column>
+					       <h:column>
+								<f:facet name="header">Bearbeiten</f:facet>
+								<!--  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
+					       </h:column>
+						</h:dataTable>
 					</div>
 				</div>
 			</div>
