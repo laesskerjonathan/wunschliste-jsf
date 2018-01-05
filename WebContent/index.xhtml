@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>FWunschliste Login</title>
@@ -22,29 +23,30 @@
 			<div class="navbar-header">
 				<div class="navbar-brand">Wunschliste</div>
 			</div>
-			<form class="fnavar-form">
+			<h:form class="fnavar-form">
 				<ul class="nav navbar-nav navbar-right">
 				<li><div class="form-group" style="margin-bottom:1em;margin-top:1em;margin-left:1em;margin-right:1em;" >Nutzername</div></li>
 					<li>
 						<div class="form-group" style="margin-bottom:0.5em;margin-top:0.5em;">
-							 <input type="text"
-								class="form-control" id="exampleInputName2"
-								placeholder="Jane Doe" />
+							 <!-- <input type="text" class="form-control" id="login_nutzername" placeholder="Nutzername" /> -->
+							 <h:inputText id="login_nutzername"  value="#{login.user}" class="form-control" p:placeholder="Nutzername"></h:inputText>
+							<h:messages globalOnly="true"  for="login_nutzername" />
 						</div>
 					</li>
-					<li> <div class="form-group" style="margin-bottom:1em;margin-top:1em;margin-left:1em;margin-right:1em;" >Passwort</div></li>
+					<li> <div class="form-group" style="margin-bottom:1em;margin-top:1em;margin-left:1em;margin-right:1em;" rype="password" >Passwort</div></li>
 					<li>
 						<div class="form-group" style="margin-bottom:0.5em;margin-top:0.5em;" >
-							 <input type="text"
-								class="form-control" id="exampleInputName2"
-								placeholder="Jane Doe" />
+							 <h:inputSecret id="login_passwort"  value="#{login.password}" class="form-control" p:placeholder="Passwort"></h:inputSecret>
+							<h:message for="login_passwort"></h:message>
 						</div>
 					</li>
-					<li><a href="dashboard.xhtml"> <span class="glyphicon glyphicon-log-in"></span>
-							Login
-					</a></li>
+					<li>
+						<div class="form-group" style="margin-bottom:0.5em;margin-top:0.5em;" >
+							<h:commandButton  class="btn btn-default" action="#{login.validateUsernamePassword}" value="Login"></h:commandButton>
+						</div>
+					</li>
 				</ul>
-			</form>
+			</h:form>
 		</div>
 	</nav>
 	<div class="col-md-12">
@@ -128,14 +130,27 @@
 										id="registrierung_passwort_confirm" placeholder="Passwort" />
 								</div>
 							</div>
-
+							
+							<div class="form-group">
+								<label for="einstellungen_geburtsdatum"
+									class="col-md-4 control-label">Geburtsdatum</label>
+								<div class="col-md-7">
+									<input type="date" class="form-control"
+										id="einstellungen_geburtsdatum" placeholder="Passwort" />
+								</div>
+							</div>
+							
+							
+							<!-- 
 							<div class="col-md-12 center-block">
 								<label for="einstellungen_geburtsdatum"
 									class="col-md-4 col-md-offset-4 control-label">Geburtsdatum</label>
+									<div class="col-md-6 col-md-offset-6">
+								</div>
 							</div>
 
 							<br /> <br />
-
+							
 							<div class="col-md-10 col-md-offset-1">
 								<div class="form-group">
 
@@ -156,7 +171,7 @@
 									</div>
 								</div>
 							</div>
-
+							 -->
 							<br /> <br />
 
 							<div class="form-group">

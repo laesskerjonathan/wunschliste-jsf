@@ -14,7 +14,7 @@
  .container-navbar{
   background-color: #FFCC00;
   color:black;
-  border:#4c3310 solid 1px;
+  border-bottom:#4c3310 solid 1px;
  }
  
 .navbar-default .navbar-nav > li > a:hover,
