@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 
 @ManagedBean
@@ -24,6 +25,7 @@ public class Login implements Serializable {
 	//validate login
 	public String validateUsernamePassword() {
 		System.out.println("Validiere Passwort");
+		//System.out.println("user: "+ user + " | passwort : " + password);
 		boolean valid = LoginDAO.validate(user, password);
 		if (valid) {
 			System.out.println("Passwort ist OK!");
@@ -32,14 +34,36 @@ public class Login implements Serializable {
 			return "dashboard";
 		} else {
 			System.out.println("Passwort NICHT ok!");
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN,
-							"Nutzername / Passwort falsch",
-							"Please enter correct username and Password"));
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			FacesMessage facesMessage = new FacesMessage("Nutzername und/oder Passwort falsch!");
+			facesContext.addMessage(null, facesMessage);
+			facesContext.addMessage("login-form:login_passwort", facesMessage);
+		
 			return "index";
 		}
 	}
+	
+	/*
+	//validate login
+		public String validateUsernamePassword() {
+			System.out.println("Validiere Passwort");
+			boolean valid = LoginDAO.validate(user, password);
+			if (valid) {
+				//LoginDAO.setPresentUser(user);
+				System.out.println("Passwort ist OK!");
+				HttpSession session = SessionUtils.getSession();
+				session.setAttribute("username", user);
+				return "dashboard";
+			} else {
+				System.out.println("Passwort NICHT ok!");
+				FacesContext facesContext = FacesContext.getCurrentInstance();
+				FacesMessage facesMessage = new FacesMessage("Nutzername und/oder Passwort falsch!");
+				facesContext.addMessage(null, facesMessage);
+				facesContext.addMessage("login-form:login_passwort", facesMessage);
+			
+				return "index";
+			}
+		}*/
 
 	//logout event, invalidate session
 	public String logout() {

@@ -23,7 +23,6 @@ public class LoginDAO {
 			//System.out.println("Komme bis hier!");
 
 			if (rs.next()) {
-				PresentUser puser = new PresentUser();
 				//puser.setVorname(rs.getString("user_vorname"));
 				//System.out.println("War korrekt!");
 				return true;
@@ -38,3 +37,26 @@ public class LoginDAO {
 			return false;
 	}
 }
+
+	/*
+	public static void setPresentUser(String user) {
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		try {
+			con = DataConnect.getConnection();
+			ps = con.prepareStatement("Select * from users where user_name = ? ");
+			ps.setString(1, user);
+			ResultSet resutl = ps.executeQuery();
+			if (resutl.next()) {				
+				PresentUser.vorname = resutl.getString("user_prename");
+				PresentUser.nachname = resutl.getString("user_lastname");
+				PresentUser.email = resutl.getString("user_email");
+			}
+			} catch (SQLException ex) {
+				System.out.println("Login error -->" + ex.getMessage());
+			} finally {
+				DataConnect.close(con);
+			}
+	}*/
+
