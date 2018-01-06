@@ -10,6 +10,7 @@
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+	<h:outputScript library="scripts" name="wuensche.js" />
 	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
 	<h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
 	<h:outputStylesheet library="css" name="custom.css"></h:outputStylesheet>
@@ -31,7 +32,7 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md- col-md-offset-1">
-						<h:form class="form-horizontal">
+						<h:form id="wunschErfassenForm" class="form-horizontal">
 							<div class="col-md-12 text-center">
 								<p>Neuen Wunsch erfassen</p>
 							</div>
@@ -66,9 +67,10 @@
 										id="wunsch_prio" min="1" max="9" step="1" value="#{wuenscheBean.prioritaet}"/>
 								</div>								
 							</div>
-							<div class="form-group">
+							<div class="form-group">	
 								<div class="col-md-3 col-md-offset-8">
-									<h:commandButton class="btn btn-default" action="#{wuenscheBean.createWunsch()}" value="Wunsch erfassen"></h:commandButton>
+									<h:commandButton class="btn btn-default" action="#{wuenscheBean.createWunsch()}" value="Wunsch erfassen">
+									</h:commandButton>
 								</div>
 							</div>
 						</h:form>
@@ -78,7 +80,7 @@
 									<p>Meine Wünsche</p>
 								</div>					
 				
-						<h:dataTable value="#{wuenscheBean.wuensche}" var="wunsch" border="2" class="table table-striped table-bordered text-center">
+						<h:dataTable rowClasses="clickable-row" id="wuenscheTabelle" value="#{wuenscheBean.wuensche}" var="wunsch" border="2" class="table table-striped table-bordered text-center">
 							<h:column>
 								<f:facet name="header">Titel</f:facet>
 					         #{wunsch.titel}
@@ -102,6 +104,15 @@
 								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
 					       </h:column>
 						</h:dataTable>
+						<h:form id="deleteLineForm">
+							<div class="form-group">	
+								<div class="col-md-3 col-md-offset-8">
+    								<h:inputHidden id="hiddenIndex" value="#{wuenscheBean.hiddenIndex}"/>
+									<h:commandButton onclick="getIndexOfActiveElement()" id="deleteLineButton" class="btn btn-default" action="#{wuenscheBean.deleteWunsch()}" value="Löschen">
+									</h:commandButton>
+								</div>
+							</div>
+							</h:form>
 							</div>
 						</div>
 					</div>

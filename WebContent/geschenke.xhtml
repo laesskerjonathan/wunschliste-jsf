@@ -69,11 +69,6 @@
 				</div>
 			</div>
 		</div>
-		<h:form id="deleteLineForm">
-    		<h:inputHidden id="hiddenIndex" value="#{geschenkeBean.hiddenIndex}"/>
-			<h:commandButton class="btn" id= "deleteLine" value = "Delete selected Line!"  disabled="disabled" onclick="getIndexOfActiveElement()" action="#{geschenkeBean.deleteGeschenk()}">
-			</h:commandButton>
-		</h:form>
 	</div>
 	<ui:insert name="footer">
 		<ui:include src="footer.xhtml" />

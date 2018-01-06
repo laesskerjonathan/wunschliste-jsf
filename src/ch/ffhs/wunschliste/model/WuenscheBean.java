@@ -19,6 +19,7 @@ public class WuenscheBean implements Serializable  {
 	public String beschreibung;
 	public String link;
 	public String prioritaet;
+	private int hiddenIndex;
 
 	private static final long serialVersionUID = 2L;
 	
@@ -80,6 +81,10 @@ public class WuenscheBean implements Serializable  {
 		//Geschenke selectedGeschenk = geschenke.get(hiddenIndex);
 		//System.out.println(selectedGeschenk.getGeschenk_id());
 		insert();
+		titel = "";
+		beschreibung = "";
+		link = "";
+		prioritaet = "";
 		return "self";
 	}
 
@@ -128,6 +133,39 @@ public class WuenscheBean implements Serializable  {
 		return titel;
 	}
 
+	public String deleteWunsch() throws ClassNotFoundException, SQLException {
+		System.out.println("hallo");
+		System.out.println(hiddenIndex);
+		List<Wuensche> wuensche = null;
+		wuensche = getWuensche();
+		Wuensche selectedGeschenk = wuensche.get(hiddenIndex);
+		System.out.println(selectedGeschenk.getWunsch_id());
+		delete(selectedGeschenk.getWunsch_id());
+		return "self";
+	}
+
+ 
+    /**
+     * Delete a warehouse specified by the id
+     *
+     * @param id
+     */
+    public void delete(int id) {
+        String sql = "DELETE FROM wuensche WHERE wunsch_id = ?";
+ 
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+ 
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+ 
 	public void setTitel(String titel) {
 		this.titel = titel;
 	}
@@ -154,6 +192,14 @@ public class WuenscheBean implements Serializable  {
 
 	public void setPrioritaet(String prioritaet) {
 		this.prioritaet = prioritaet;
+	}
+
+	public int getHiddenIndex() {
+		return hiddenIndex;
+	}
+
+	public void setHiddenIndex(int hiddenIndex) {
+		this.hiddenIndex = hiddenIndex;
 	}
  
 }
