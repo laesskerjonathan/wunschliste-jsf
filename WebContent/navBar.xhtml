@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>Facelets Hello World</title>
@@ -22,7 +23,9 @@
 				<li class="#{view.viewId eq '/geschenke.xhtml' ? 'active' : ''}"><a
 					href="geschenke.xhtml">Geschenke</a></li>
 			</ul>
+			<div class="col-md-4 text-center"><h4>Hallo #{login.user}</h4></div>
 			<ul class="nav navbar-nav navbar-right">
+				
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Weiteres<span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -31,8 +34,11 @@
 						<li
 							class="#{view.viewId eq '/einstellungen.xhtml' ? 'active' : ''}"><a
 							href="einstellungen.xhtml">Einstellungen</a></li>
-						<li class="#{view.viewId eq '/index.xhtml' ? 'active' : ''}"><a
-							href="index.xhtml">Logout</a></li>
+						<li>
+							<h:form>
+								<h:commandLink action="#{login.logout}" class="#{view.viewId eq '/index.xhtml' ? 'active' : ''}" value="Logout" style="text-decoration;color:black;margin-left:1.5em;background-color:grey;">Logout</h:commandLink>
+							</h:form>
+						</li>
 					</ul>
 				</li>
 			</ul>
