@@ -9,6 +9,7 @@
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script
 		src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<h:outputScript library="scripts" name="geschenke.js" />
 
 	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
 	<h:outputStylesheet library="css" name="bootstrap-theme.css"></h:outputStylesheet>
@@ -33,9 +34,9 @@
 					<div class="col-md-12">
 						<div class="col-md-offset-1">
 							<div class="form-group">
-								<label> <input type="checkbox" /> Auch erledigte
+								<!--<label> <input type="checkbox" /> Auch erledigte
 									Geschenke zeigen
-								</label>
+								</label>  -->
 							</div>
 						</div>
 					</div>
@@ -43,7 +44,9 @@
 						<div class="col-md-12 text-center">
 							<p>Zu besorgende Geschenke</p>
 						</div>
-						<h:dataTable value="#{geschenkeBean.geschenke}" var="geschenk" border="2" class="table table-striped table-bordered text-center">
+						<h:dataTable value="#{geschenkeBean.geschenke}" var="geschenk" border="2" 
+						class="table table-striped table-bordered text-center" id="geschenkeTable" 
+						rowClasses="clickable-row">
 							<h:column>
 								<f:facet name="header">Titel</f:facet>
 					         #{geschenk.titel}
@@ -66,6 +69,11 @@
 				</div>
 			</div>
 		</div>
+		<h:form id="deleteLineForm">
+    		<h:inputHidden id="hiddenIndex" value="#{geschenkeBean.hiddenIndex}"/>
+			<h:commandButton class="btn" id= "deleteLine" value = "Delete selected Line!"  disabled="disabled" onclick="getIndexOfActiveElement()" action="#{geschenkeBean.deleteGeschenk()}">
+			</h:commandButton>
+		</h:form>
 	</div>
 	<ui:insert name="footer">
 		<ui:include src="footer.xhtml" />

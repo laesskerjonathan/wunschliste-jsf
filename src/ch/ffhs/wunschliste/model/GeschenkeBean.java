@@ -16,6 +16,8 @@ import javax.faces.bean.SessionScoped;
 public class GeschenkeBean implements Serializable {
 
 	private static final long serialVersionUID = 6081417964063918994L;
+	
+	private int hiddenIndex;
 
 	public List<Geschenke> getGeschenke() throws ClassNotFoundException, SQLException {
 
@@ -67,5 +69,74 @@ public class GeschenkeBean implements Serializable {
 		return geschenke;
 
 	}
+	
+	public String deleteGeschenk() throws ClassNotFoundException, SQLException {
+		System.out.println("hallo");
+		System.out.println(hiddenIndex);
+		List<Geschenke> geschenke = null;
+		geschenke = getGeschenke();
+		Geschenke selectedGeschenk = geschenke.get(hiddenIndex);
+		System.out.println(selectedGeschenk.getGeschenk_id());
+		delete(selectedGeschenk.getGeschenk_id());
+		return "self";
+	}
+
+
+    /**
+     * Connect to the test.db database
+     *
+     * @return the Connection object
+     */
+    private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:mysql://localhost:3306/wunschliste";
+		String username = "root";
+		String password = "";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(conn);
+        return conn;
+    }
+ 
+    /**
+     * Delete a warehouse specified by the id
+     *
+     * @param id
+     */
+    public void delete(int id) {
+        String sql = "DELETE FROM geschenke WHERE geschenk_id = ?";
+ 
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+ 
+            // set the corresponding param
+            pstmt.setInt(1, id);
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+ 
+    /**
+     * @param args the command line arguments
+     */
+	
+	
+	public int getHiddenIndex() {
+		return hiddenIndex;
+	}
+
+	public void setHiddenIndex(int hiddenIndex) {
+		this.hiddenIndex = hiddenIndex;
+	}
+	
+	
+	
 	
 }

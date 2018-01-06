@@ -16,7 +16,7 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="D:/dev/libraries/jsf-api-2.2.9.jar"/>
 	<classpathentry kind="lib" path="D:/dev/libraries/jsf-impl-2.2.9.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 			<attribute name="owner.project.facets" value="jst.jsf"/>

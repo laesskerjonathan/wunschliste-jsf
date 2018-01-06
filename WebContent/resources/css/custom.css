@@ -47,3 +47,7 @@
 .table-striped-custom{
 	background-color: white;
 }
+
+.active > td {
+	background-color: yellow !important;
+}
