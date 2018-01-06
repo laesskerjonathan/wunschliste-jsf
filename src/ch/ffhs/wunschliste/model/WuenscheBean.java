@@ -15,9 +15,14 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class WuenscheBean implements Serializable  {
 
+	public String titel;
+	public String beschreibung;
+	public String link;
+	public String prioritaet;
+
 	private static final long serialVersionUID = 2L;
 	
-	public List<Wuensche> getwuensche() throws ClassNotFoundException, SQLException {
+	public List<Wuensche> getWuensche() throws ClassNotFoundException, SQLException {
 
 		Connection connect = null;
 
@@ -63,6 +68,93 @@ public class WuenscheBean implements Serializable  {
 		return wuensche;
 
 	}
-	
+
+	public String createWunsch() throws ClassNotFoundException, SQLException {
+		System.out.println("hallo");
+		System.out.println(titel);
+		System.out.println(beschreibung);
+		System.out.println(link);
+		System.out.println(prioritaet);
+		//List<Wuensche> geschenke = null;
+		//geschenke = getWuensche();
+		//Geschenke selectedGeschenk = geschenke.get(hiddenIndex);
+		//System.out.println(selectedGeschenk.getGeschenk_id());
+		insert();
+		return "self";
+	}
+
+
+    /**
+     * Connect to the test.db database
+     *
+     * @return the Connection object
+     */
+    private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:mysql://localhost:3306/wunschliste";
+		String username = "root";
+		String password = "";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(conn);
+        return conn;
+    }
+ 
+    /**
+     * Delete a warehouse specified by the id
+     *
+     * @param id
+     */
+    public void insert() {
+        String sql = "INSERT INTO wuensche(titel, beschreibung, link, prioritaet) VALUES('" +
+        		titel + "','" + beschreibung + "','" + link + "','" + prioritaet +  "');";
+
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+ 
+            // execute the delete statement
+            pstmt.executeUpdate();
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+	public String getTitel() {
+		return titel;
+	}
+
+	public void setTitel(String titel) {
+		this.titel = titel;
+	}
+
+	public String getBeschreibung() {
+		return beschreibung;
+	}
+
+	public void setBeschreibung(String beschreibung) {
+		this.beschreibung = beschreibung;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getPrioritaet() {
+		return prioritaet;
+	}
+
+	public void setPrioritaet(String prioritaet) {
+		this.prioritaet = prioritaet;
+	}
+ 
 }
 

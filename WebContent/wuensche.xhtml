@@ -31,44 +31,47 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md- col-md-offset-1">
-						<form class="form-horizontal">
+						<h:form class="form-horizontal">
 							<div class="col-md-12 text-center">
 								<p>Neuen Wunsch erfassen</p>
 							</div>
 							<div class="form-group">
 								<label for="wunsch_titel" class="col-md-2 control-label">Titel</label>
 								<div class="col-md-8">
-									<input type="text" class="form-control"
-										id="wunsch_titel" placeholder="Titel für einen Wunsch" />
+									<h:inputText class="form-control"
+										id="wunsch_titel" placeholder="Titel für einen Wunsch" value="#{wuenscheBean.titel}"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="wunsch_beschreibung" class="col-md-2 control-label">Beschreibung</label>
 								<div class="col-md-8">
-									<textarea id="wunsch_beschreibung" class="form-control" rows="3" placeholder="Beschreibung für einen Wunsch"></textarea>
+									<h:inputTextarea id="wunsch_beschreibung" class="form-control" 
+										rows="3" placeholder="Beschreibung für einen Wunsch" value="#{wuenscheBean.beschreibung}">
+									</h:inputTextarea>
 								</div>
 							</div>							
 							<div class="form-group">
 								<label for="wunsch_link" class="col-md-2 control-label">Link</label>
 								<div class="col-md-8">
-									<input type="text" class="form-control"
-										id="wunsch_link" placeholder="URL zu Bild oder Beschreibung" />
+									<h:inputText class="form-control"
+										id="wunsch_link" placeholder="URL zu Bild oder Beschreibung" 
+										 value="#{wuenscheBean.link}"/>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="wunsch_prio" class="col-md-2 control-label">Priorität</label>
 								<div class="col-md-2">
-									<input type="number" class="form-control"
-										id="wunsch_prio" min="1" max="9" step="1" value="5" />
+									<h:inputText class="form-control"
+										id="wunsch_prio" min="1" max="9" step="1" value="#{wuenscheBean.prioritaet}"/>
 								</div>								
 							</div>
 							<div class="form-group">
 								<div class="col-md-3 col-md-offset-8">
-									<button class="btn btn-default">Wunsch erfassen</button>
+									<h:commandButton class="btn btn-default" action="#{wuenscheBean.createWunsch()}" value="Wunsch erfassen"></h:commandButton>
 								</div>
 							</div>
-						</form>
+						</h:form>
 						<div class="row">
 							<div class="col-md-10 col-md-offset-1">
 								<div class="col-md-12 text-center">
