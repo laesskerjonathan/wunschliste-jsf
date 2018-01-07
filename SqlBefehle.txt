@@ -4,14 +4,14 @@ USE wunschliste;
 CREATE TABLE geschenke (
 	geschenk_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	titel VARCHAR(60),
-	person INTEGER,
+	person VARCHAR(60),
 	beschreibung VARCHAR(1000),
-	erledigt BOOLEAN
+	erledigt VARCHAR(5)
 );
 
-INSERT INTO geschenke VALUES(1,'Bund Rosen', 1, 'Bio und Rot ', false);
-INSERT INTO geschenke VALUES(2,'Laptop', 2, 'Von Apple', true);
-INSERT INTO geschenke VALUES(3,'10000 Fr.-', 3, '5000 pro Note', false);
+INSERT INTO geschenke VALUES(1,'Bund Rosen', 'Jonathan', 'Bio und Rot ', 'X');
+INSERT INTO geschenke VALUES(2,'Laptop', 'Barbara', 'Von Apple', '');
+INSERT INTO geschenke VALUES(3,'10000 Fr.-', 'Rafael', '5000 pro Note', '');
 ------------------------------------------------------------------------------------
 USE wunschliste;
 
@@ -20,12 +20,57 @@ CREATE TABLE freunde (
 	nutzername VARCHAR(60),
 	vorname VARCHAR(60),
 	nachname VARCHAR(60),
-	email VARCHAR(60)
+	email VARCHAR(60), 
+	hinzugefuegt INTEGER
 );
 
-INSERT INTO freunde VALUES(1,'SuperBarbara1','Barbara1','Metzger1','barbara.metzger1@students.ffhs.ch');
-INSERT INTO freunde VALUES(2,'SuperBarbara2','Barbara2','Metzger2','barbara.metzger2@students.ffhs.ch');
-INSERT INTO freunde VALUES(3,'SuperBarbara3','Barbara3','Metzger3','barbara.metzger3@students.ffhs.ch');
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Harrinat','Maria','Curry','eppebunnapp-1114@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Blesind','Achim','McNeil','wuqidduttulli-5174@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Twens1987','Irmingard','Schneiderman','ysuryna-1531@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Goomects1941','Caroline','Thurner','essimammucy-4533@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Tray1969','Gertraud','Leith','ofimaberr-3577@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Blarly84','Hildegard','Rivest','acadymme-4769@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Getelon','Agathe','Aaron','4stefyvs@rollindo.agency', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Hamprat','Adam','McNeil','4stefyvs@rollindo.agency', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Rabliand','Brigitta','Laur','logejasuffu-6645@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Liand1997','Adam','Feigenbaum','yrresake-6966@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Spict1984','Wessel','Wolland','pellassyfap-3745@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Summence','Ursel','Rothfuss','ohessarup-3820@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Aforeg','Fiete','Oppenheimer','ruqagaval-5296@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Froper46','Cornelius','Menzelfricke','edageco-9399@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Herus1937','Adam','McNeil','bihymmovab-6828@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('IngTheBorg69','Ingeborg','Dustin-Krupinsky','latteqasassu-2320@yopmail.com', 0);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('Hative','Adelbert','Yarchuk','ilarrigyss-2799@yopmail.com', 0);
+	
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('YellowSkull420','Ferumbras','Brown','lavender.candy.ears@gmail.com', 1);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('MadameFreeze161','Poppy','Diggle','hunter.proctor@yahoo.com', 1);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('MasterOfDesaster666','Lavender','Silky','ilarrigyss-2799@yopmail.com', 1);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('LandslideMonty','Montana','Icebreaker','ilarrigyss-2799@yopmail.com', 1);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('SpudGonzo','Mackenzie','Devastation','md@yopmail.com', 1);
+INSERT INTO freunde(nutzername, vorname, nachname, email, hinzugefuegt) 
+	VALUES('BullseyeSugar','Doogie','Howser','md@med.gov.com', 1);
 ------------------------------------------------------------------------------------
 USE wunschliste;
 

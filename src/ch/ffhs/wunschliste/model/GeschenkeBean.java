@@ -54,9 +54,9 @@ public class GeschenkeBean implements Serializable {
 			String titel = rs.getString("titel");
 			System.out.println(titel);
 			geschenk.setTitel(titel);
-			geschenk.setPerson(rs.getInt("person"));
+			geschenk.setPerson(rs.getString("person"));
 			geschenk.setBeschreibung(rs.getString("beschreibung"));
-			geschenk.setErledigt(rs.getBoolean("erledigt"));
+			geschenk.setErledigt(rs.getString("erledigt"));
 			geschenke.add(geschenk);
 
 		}

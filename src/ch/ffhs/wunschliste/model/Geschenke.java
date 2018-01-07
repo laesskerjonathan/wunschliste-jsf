@@ -4,15 +4,15 @@ public class Geschenke {
 
 	private Integer geschenk_id;
 	private String titel;
-	private Integer person;
+	private String person;
 	private String beschreibung;
-	private Boolean erledigt;
+	private String erledigt;
 
 	public Geschenke() {
 	}
 
-	public Geschenke(Integer geschenk_id, String titel, Integer person, String beschreibung,
-			Boolean erledigt) {
+	public Geschenke(Integer geschenk_id, String titel, String person, String beschreibung,
+			String erledigt) {
 		this.geschenk_id = geschenk_id;
 		this.titel = titel;
 		this.person = person;
@@ -36,14 +36,6 @@ public class Geschenke {
 		this.titel = titel;
 	}
 
-	public Integer getPerson() {
-		return person;
-	}
-
-	public void setPerson(Integer person) {
-		this.person = person;
-	}
-
 	public String getBeschreibung() {
 		return beschreibung;
 	}
@@ -52,11 +44,20 @@ public class Geschenke {
 		this.beschreibung = beschreibung;
 	}
 
-	public Boolean getErledigt() {
-		return erledigt;
+
+	public void setPerson(String person) {
+		this.person = person;
 	}
 
-	public void setErledigt(Boolean erledigt) {
+	public void setErledigt(String erledigt) {
 		this.erledigt = erledigt;
+	}
+
+	public String getPerson() {
+		return person;
+	}
+
+	public String getErledigt() {
+		return erledigt;
 	}
 }
